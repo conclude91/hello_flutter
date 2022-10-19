@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/pages/account_page.dart';
+import 'package:hello_flutter/widgets/custom_pimary_button.dart';
 
-class DashboardPage extends StatefulWidget {
-  const DashboardPage({super.key});
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
 
   @override
-  State<DashboardPage> createState() => _DashboardPageState();
+  State<CounterPage> createState() => _CounterPageState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _CounterPageState extends State<CounterPage> {
   int _count = 0;
 
   void _increment() {
@@ -30,7 +32,7 @@ class _DashboardPageState extends State<DashboardPage> {
           padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 '$_count',
@@ -64,6 +66,15 @@ class _DashboardPageState extends State<DashboardPage> {
                     child: const Icon(Icons.add),
                   ),
                 ],
+              ),
+              CustomPrimaryButton(
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AccountPage(count: _count),
+                  ),
+                ),
+                text: 'Menuju halaman account',
               ),
             ],
           ),
