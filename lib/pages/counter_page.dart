@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/pages/result_page.dart';
+import 'package:hello_flutter/widgets/custom_button.dart';
 
-class DashboardPage extends StatefulWidget {
-  const DashboardPage({super.key});
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
 
   @override
-  State<DashboardPage> createState() => _DashboardPageState();
+  State<CounterPage> createState() => _CounterPageState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _CounterPageState extends State<CounterPage> {
   int _count = 0;
 
   void _increment() {
@@ -65,6 +67,30 @@ class _DashboardPageState extends State<DashboardPage> {
                   ),
                 ],
               ),
+              CustomButton(
+                  text: 'Go to result page',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultPage(count: _count),
+                      ),
+                    );
+                  }),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     elevation: 0,
+              //   ),
+              //   onPressed: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => ResultPage(count: _count),
+              //       ),
+              //     );
+              //   },
+              //   child: const Text('Go to result page'),
+              // ),
             ],
           ),
         ),
